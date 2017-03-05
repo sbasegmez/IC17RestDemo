@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xp_1="http://www.ibm.com/xsp/coreex">
+	<xp:link
+		escape="true"
+		text="You are not authenticated in Box... Click here to login. Reload this page afterwards!"
+		id="link1"
+		target="_blank"
+		styleClass="btn btn-warning">
+		<xp:span styleClass="glyphicon glyphicon-exclamation-sign" />
+		<xp:eventHandler
+			event="onclick"
+			submit="false"
+			script="redirectToBox()">
+		</xp:eventHandler>
+	</xp:link>
+	<xp:scriptBlock
+		id="scriptBlock1"
+		type="text/javascript">
+		<xp:this.value><![CDATA[
+function redirectToBox() {
+	var w = window.open(
+		"#{box.oauthLink}",
+		'_blank',
+		'height=620,width=400,menubar=no,scrollbars=no,status=no',
+		false);
+}
+]]></xp:this.value>
+	</xp:scriptBlock>
+</xp:view>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xc:ccLayout navigationPath="/so_demo">
+		<xp:this.facets>
+			<xc:soQuestions xp:key="facetMiddle"></xc:soQuestions>
+		</xp:this.facets>
+	</xc:ccLayout></xp:view>

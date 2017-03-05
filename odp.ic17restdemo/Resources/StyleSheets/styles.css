@@ -1,0 +1,13 @@
+.questionDlg pre {
+	font-size: 9px;
+}
+
+.questionDlg .body {
+	font-size: 12px;
+}
+
+.tagName a {
+	padding: 2px 5px;
+	font-size: smaller;
+	color: gray;
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:div
+		styleClass="row">
+		<xp:div
+			styleClass="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<xp:div
+				id="boxPanel"
+				styleClass="panel panel-success">
+				<xp:div
+					styleClass="panel-heading">
+					<xp:text
+						tagName="h4"
+						value="You are connected to Box as..." />
+				</xp:div>
+				<xp:div
+					styleClass="panel-body">
+					<xp:div
+						styleClass="pull-left">
+						<xp:image
+							url="#{box.currentAvatarUrl}"
+							id="image1"
+							styleClass="img-circle">
+						</xp:image>
+					</xp:div>
+					<xp:div
+						style="margin-left:50px;">
+						<xp:text
+							escape="true"
+							tagName="h4"
+							id="computedField1"
+							value="#{box.currentUsername}">
+						</xp:text>
+					</xp:div>
+				</xp:div>
+			</xp:div>
+		</xp:div>
+		<xp:div
+			id="wrapper"
+			styleClass="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+			<xp:div
+				styleClass="btn-group btn-group-sm"
+				role="group">
+				<xp:button
+					value="Up"
+					styleClass="btn btn-default"
+					id="button2">
+					<xp:eventHandler
+						event="onclick"
+						submit="true"
+						refreshMode="partial"
+						refreshId="wrapper"
+						action="#{box.backToLastFolder}">
+					</xp:eventHandler>
+					<xp:span
+						styleClass="glyphicon glyphicon-arrow-left" />
+				</xp:button>
+			</xp:div>
+			<hr />
+			<xp:repeat
+				id="repeat1"
+				rows="30"
+				value="#{box.currentItems}"
+				var="item">
+				<xp:div
+					style="background:url(#{item.icon}.png) no-repeat left center; padding:8px 0px 8px 40px;">
+					<xp:link
+						id="link1"
+						value="#{item.file?item.url:''}">
+						<xp:text
+							value="#{item.name}"
+							styleClass=""
+							tagName="h5"
+							style="margin:0px;">
+						</xp:text>
+						<xp:eventHandler
+							event="onclick"
+							submit="true"
+							rendered="#{item.folder}"
+							refreshMode="partial"
+							refreshId="wrapper">
+							<xp:this.action><![CDATA[#{javascript:box.changeFolder(item.id)}]]></xp:this.action>
+						</xp:eventHandler>
+					</xp:link>
+				</xp:div>
+				<hr
+					style="margin:5px 0px;" />
+			</xp:repeat>
+		</xp:div>
+	</xp:div>
+</xp:view>

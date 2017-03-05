@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xe="http://www.ibm.com/xsp/coreex"
+	xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.resources>
+		<xp:styleSheet href="/styles.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xe:applicationLayout id="applicationLayout1">
+		<xp:callback
+			facetName="facetMiddle"
+			id="facetMiddle">
+		</xp:callback>
+		<xe:this.configuration>
+			<xe:bootstrapResponsiveConfiguration
+				legal="false"
+				navigationPath="#{compositeData.navigationPath}"
+				leftColumnLabel="Menu"
+				banner="true"
+				placeBar="false"
+				footer="false"
+				invertedNavbar="true"
+				titleBar="false">
+				<xe:this.bannerApplicationLinks>
+					<xe:pageTreeNode
+						label="IBM Connect 2017 Demo"
+						page="/home.xsp">
+					</xe:pageTreeNode>
+				</xe:this.bannerApplicationLinks>
+				<xe:this.bannerUtilityLinks>
+					
+					<xe:basicContainerNode label="Demos">
+						<xe:this.children>
+							<xe:pageTreeNode
+								label="Stack Overflow - IBM Watson Demo"
+								page="/stackoverflow.xsp">
+							</xe:pageTreeNode>
+							<xe:pageTreeNode
+								label="Box Demo"
+								page="/box.xsp"
+								selection="box_demo">
+							</xe:pageTreeNode>
+						</xe:this.children>
+					</xe:basicContainerNode>
+					<xe:separatorTreeNode></xe:separatorTreeNode>
+					<xe:basicLeafNode>
+						<xe:this.label><![CDATA[${javascript:@Name("[CN]", @UserName())}]]></xe:this.label>
+					</xe:basicLeafNode>
+				</xe:this.bannerUtilityLinks>
+			</xe:bootstrapResponsiveConfiguration>
+		</xe:this.configuration>
+	</xe:applicationLayout>
+</xp:view>

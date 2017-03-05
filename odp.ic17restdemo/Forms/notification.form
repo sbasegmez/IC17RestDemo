@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.lotus.com/dxl" name="notification" publicaccess="false" renderpassthrough="true">
+  <body>
+    <richtext>
+      <pardef id="1"/>
+      <par def="1"/>
+      <par def="1"/>
+      <par def="1">Valid:</par>
+      <par def="1">
+        <field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="Valid" listinputseparators="comma" listdisplayseparator="comma">
+          <keywords helperbutton="false" columns="1" ui="checkbox">
+            <textlist>
+              <text>Yes|1</text>
+            </textlist>
+          </keywords>
+        </field>
+      </par>
+      <par def="1"/>
+      <par def="1">Headers:</par>
+      <par def="1">
+        <field type="text" allowmultivalues="true" kind="editable" name="Headers" listinputseparators="comma semicolon newline blankline" listdisplayseparator="newline"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="1"/>
+      <par def="1">Payload:</par>
+      <par def="1">
+        <field type="text" kind="editable" name="Payload"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="1"/>
+    </richtext>
+  </body>
+  <item name="CreatedOn" summary="false">
+    <rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata>
+  </item>
+  <item name="CreatedAt" summary="false">
+    <rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata>
+  </item>
+</form>

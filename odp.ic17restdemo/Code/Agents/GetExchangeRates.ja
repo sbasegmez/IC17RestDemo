@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agent xmlns="http://www.lotus.com/dxl" name="GetExchangeRates" hide="v3" publicaccess="false" restrictions="fulladminunrestricted" activatable="false">
+  <trigger type="scheduled">
+    <schedule type="never" runlocation="specific" runserver="CN=mobile1/O=developi"/>
+  </trigger>
+  <code event="action">
+    <javaproject class="JavaAgent.class" compiledebug="true">
+      <java name="JavaAgent.java">import lotus.domino.AgentBase;
+import lotus.domino.Log;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import com.ibm.commons.util.io.json.JsonJavaFactory;
+import com.ibm.commons.util.io.json.JsonJavaObject;
+import com.ibm.commons.util.io.json.JsonParser;
+
+public class JavaAgent extends AgentBase {
+
+	public void NotesMain() {
+
+		try {
+			receiveExchangeRates();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void receiveExchangeRates() throws Exception {
+		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpGet httpGet = new HttpGet("http://api.fixer.io/latest?base=USD");
+		CloseableHttpResponse response = httpclient.execute(httpGet);
+	
+		try {
+		    HttpEntity entity = response.getEntity();
+		    
+		    // This is the worst practice ever! 
+		    // We don't check anything! Everything can go wrong... 
+		    JsonJavaObject ratesMap = (JsonJavaObject) JsonParser.fromJson(JsonJavaFactory.instanceEx, EntityUtils.toString(entity));
+		    JsonJavaObject rates = ratesMap.getAsObject("rates");
+		    
+		    Log agentLog = getSession().createLog("ExchangeRates");
+		    agentLog.openAgentLog();
+		    
+		    // Normally we should write values into a NotesDocument
+		    String result = "1 EUR = " + rates.getAsDouble("EUR") + " USD";
+		    agentLog.logAction(result);
+		    System.out.println(result);
+		    
+		} finally {
+		    response.close();
+		}
+	
+	}
+
+}</java>
+      <sharedlibraryref name="ApacheHttp"/>
+    </javaproject>
+  </code>
+  <item name="$JavaCompilerSource">
+    <text>1.5</text>
+  </item>
+  <item name="$JavaCompilerTarget">
+    <text>1.5</text>
+  </item>
+</agent>

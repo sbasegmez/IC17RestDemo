@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.lotus.com/dxl" name="token" publicaccess="false" renderpassthrough="true">
+  <body>
+    <richtext>
+      <pardef id="1"/>
+      <par def="1">Owner:</par>
+      <par def="1">
+        <field type="names" kind="editable" name="Owner"/>
+      </par>
+      <par def="1"/>
+      <par def="1">AccessToken:</par>
+      <par def="1">
+        <field type="text" kind="editable" name="AccessToken"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="1"/>
+      <par def="1">ExpireTime:</par>
+      <par def="1">
+        <field type="datetime" kind="editable" name="ExpireDateTime">
+          <datetimeformat show="datetime" date="yearmonthday" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="weekdaydaymonthyear" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1=" " dateseparator2="." dateseparator3="." timeseparator=":" timeformat24="true" preference="usersetting"/>
+        </field>
+      </par>
+      <par def="1"/>
+      <par def="1">RestrictedTo:</par>
+      <par def="1">
+        <field type="text" kind="editable" name="RestrictTo"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="1"/>
+      <par def="1">TokenType:</par>
+      <par def="1">
+        <field type="text" kind="editable" name="TokenType"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="1"/>
+      <par def="1">RefreshToken:</par>
+      <par def="1">
+        <field type="text" kind="editable" name="RefreshToken"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="1"/>
+    </richtext>
+  </body>
+  <item name="ExpiresIn" summary="false">
+    <number>0</number>
+  </item>
+  <item name="ExpireTime" summary="false">
+    <number>0</number>
+  </item>
+</form>

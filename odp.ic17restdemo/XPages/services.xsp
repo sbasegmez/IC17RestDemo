@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xe="http://www.ibm.com/xsp/coreex">
+	<xe:restService
+		id="restService2"
+		state="true"
+		pathInfo="/notifyNewFile"
+		preventDojoStore="true">
+		<xe:this.service>
+			<xe:customRestService
+				contentType="application/json"
+				requestContentType="application/json"
+				serviceBean="com.developi.demo.box.NotificationServiceBean">
+			</xe:customRestService>
+		</xe:this.service>
+	</xe:restService>
+	<xe:restService
+		id="restService3"
+		pathInfo="boxCallBack"
+		preventDojoStore="true"
+		state="false">
+		<xe:this.service>
+			<xe:customRestService
+				serviceBean="box"></xe:customRestService>
+		</xe:this.service>
+	</xe:restService>
+</xp:view>

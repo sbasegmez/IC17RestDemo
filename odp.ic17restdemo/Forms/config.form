@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.lotus.com/dxl" name="config" publicaccess="false" renderpassthrough="true">
+  <body>
+    <richtext>
+      <pardef id="1" hide="notes web mobile"/>
+      <par def="1">
+        <field type="text" kind="computed" name="Form">
+          <code event="defaultvalue">
+            <formula>"config"</formula>
+          </code>
+        </field>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <pardef id="2"/>
+      <par def="2"/>
+      <par def="2">Watson Natural Language Classifier:</par>
+      <par def="2"/>
+      <par def="2">URL: <field type="text" kind="editable" name="WatsonNLUrl"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="2">ClassifierId: <field type="text" kind="editable" name="WatsonNLClassifierId"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="2">Username: <field type="text" kind="editable" name="WatsonNLUsername"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="2">Password: <field type="text" kind="editable" name="WatsonNLPassword"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="2"/>
+      <par def="2">Box OAUTH2 Parameters:</par>
+      <par def="2"/>
+      <par def="2">RedirectUrl: <field type="text" kind="editable" name="BoxRedirectUrl"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="2">ClientId: <field type="text" kind="editable" name="BoxClientId"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="2">ClientSecret: <field type="text" kind="editable" name="BoxClientSecret"/>
+        <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+      </par>
+      <par def="2"/>
+      <par def="2">Notify User on Webhook: <field type="names" kind="editable" name="NotifyUser"/>
+      </par>
+    </richtext>
+  </body>
+</form>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:text
+		escape="true"
+		id="computedField1"
+		tagName="h3"
+		value="Your Data In the Major Leagues: A Practical Guide to REST Services">
+		<xp:text
+			value="IBM Connect 2017 Session Demo Database"
+			tagName="small" />
+	</xp:text>
+	<xp:br />
+	<xp:text
+		escape="true"
+		id="computedField2"
+		tagName="h4"
+		value="Java Example">
+	</xp:text>
+	<p>The following button will trigger a simple Java code to pull current exchange rate an open RESTful API. 
+	The same code is also available as a Java agent (GetExchangeRates) that can be run on server or Domino Designer.</p>
+	<xp:button
+		id="button1"
+		styleClass="btn btn-default btn-sm"
+		value="Start Simple: What is the exchange rate?">
+		<xp:eventHandler
+			event="onclick"
+			submit="true"
+			refreshMode="partial"
+			refreshId="rateContainer">
+			<xp:this.action><![CDATA[#{javascript:
+				viewScope.EurUsdRate = test.ExchangeRate.receiveEurUsdRate()
+				}]]></xp:this.action>
+		</xp:eventHandler>
+	</xp:button>
+	<xp:span
+		id="rateContainer">
+		<xp:span
+			rendered="#{not empty viewScope.EurUsdRate}">
+			<xp:label
+				value="1 USD = "
+				id="label1">
+			</xp:label>
+			<xp:text
+				escape="true"
+				id="displayRate"
+				value="#{viewScope.EurUsdRate}">
+				<xp:this.converter>
+					<xp:convertNumber
+						type="currency"
+						currencySymbol="€"
+						currencyCode="s">
+					</xp:convertNumber>
+				</xp:this.converter>
+			</xp:text>
+		</xp:span>
+	</xp:span>
+	<xp:br />
+	<xp:br />
+	<xp:text
+		escape="true"
+		id="computedField3"
+		tagName="h4"
+		value="Stackoverflow - Watson Demo">
+	</xp:text>
+	<p>You will see the list of unanswered questions asked for #XPages tag on Stackoverflow. 
+	If you train IBM Watson to find who can answer those questions, you may use Question dialog to find out who can answer those questions.</p>
+	<xp:button
+		id="button2"
+		styleClass="btn btn-default btn-sm"
+		value="Open Stackoverflow - Watson Demo">
+		<xp:eventHandler
+			event="onclick"
+			submit="true"
+			refreshMode="complete">
+			<xp:this.action>
+				<xp:openPage
+					name="/stackoverflow.xsp"></xp:openPage>
+			</xp:this.action>
+		</xp:eventHandler>
+	</xp:button>
+	<xp:br />
+	<xp:br />
+	<xp:text
+		escape="true"
+		id="computedField4"
+		tagName="h4"
+		value="Box OAuth2 Demo">
+	</xp:text>
+	<p>If you configure settings for a Box Application, the Box demo will initiate an OAuth2 dance to authorize this application to navigate 
+	Box files on behalf of you.</p>
+	<xp:button
+		id="button3"
+		styleClass="btn btn-default btn-sm"
+		value="Open Box Oauth2 Demo">
+		<xp:eventHandler
+			event="onclick"
+			submit="true"
+			refreshMode="complete">
+			<xp:this.action>
+				<xp:openPage
+					name="/box.xsp"></xp:openPage>
+			</xp:this.action>
+		</xp:eventHandler>
+	</xp:button>
+</xp:view>

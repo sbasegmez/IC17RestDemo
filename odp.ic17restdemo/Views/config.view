@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.lotus.com/dxl" name="config" showinmenu="false" noreplace="true" publicaccess="false" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="beveled" opencollapsed="false" showresponsehierarchy="true" showmargin="true" shrinkrows="false" extendlastcolumn="false" showhierarchies="false" unreadcolor="black" rowlinecount="1" headerlinecount="1" rowspacing="1" bgcolor="white" totalscolor="black" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false">
+  <code event="selection">
+    <formula>SELECT form="config"</formula>
+  </code>
+  <actionbar bgcolor="#f0f0f0" bordercolor="black">
+    <actionbuttonstyle bgcolor="#f0f0f0"/>
+    <font color="system"/>
+    <border style="solid" width="0px 0px 1px"/>
+    <action title="Create/Edit Config">
+      <code event="click">
+        <lotusscript>Sub Click(Source As Button)
+	Dim session As New NotesSession
+	Dim ws As New NotesUIWorkspace
+	
+	Dim db As NotesDatabase
+	Dim view As NotesView
+	Dim doc As NotesDocument
+	
+	Set db = session.currentDatabase
+	Set view = db.GetView("config")
+	
+	Set doc = view.getFirstDocument
+	
+	If doc Is Nothing Then 
+		Set doc = db.createdocument
+		Call doc.ReplaceItemValue("form", "config")
+	End If
+	
+	Call ws.EditDocument(True, doc)
+	
+End Sub</lotusscript>
+      </code>
+    </action>
+  </actionbar>
+  <column hidedetailrows="false" itemname="$0" width="10" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false">
+    <columnheader title="#">
+      <font size="9pt" style="bold"/>
+    </columnheader>
+    <code event="value">
+      <formula>@DocNumber</formula>
+    </code>
+  </column>
+</view>

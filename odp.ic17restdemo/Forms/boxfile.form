@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.lotus.com/dxl" name="boxfile" publicaccess="false" renderpassthrough="true">
+  <body>
+    <richtext>
+      <pardef id="1"/>
+      <par def="1"/>
+      <par def="1">
+        <run>
+          <font size="22pt" style="bold" color="silver"/>Uploaded File</run>
+      </par>
+      <par def="1"/>
+      <table widthtype="fixedleft" colorstyle="solid" bgcolor="#ffffd0" rowspacing="0.0396in" columnspacing="0.0396in" refwidth="6.9188in">
+        <tablecolumn width="1.4604in"/>
+        <tablecolumn width="5.3000in"/>
+        <tablerow>
+          <tablecell columnspan="2" borderwidth="0px 0px 1px" bgcolor="white">
+            <pardef id="3" align="center" keepwithnext="true" keeptogether="true">
+              <code event="hidewhen">
+                <formula>Status="ACTIVE"</formula>
+              </code>
+            </pardef>
+            <par def="3">
+              <run>
+                <font size="16pt" style="bold" color="red"/>DELETED!!!</run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="1px 1px 1px 0px">
+            <pardef id="4" align="right" keepwithnext="true" keeptogether="true"/>
+            <par def="4">
+              <run>
+                <font size="12pt" color="teal"/>Created at:</run>
+            </par>
+          </tablecell>
+          <tablecell borderwidth="1px 0px 1px 1px">
+            <pardef id="5" keepwithnext="true" keeptogether="true"/>
+            <par def="5">
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+              <run>
+                <font size="12pt" color="navy"/>
+                <field type="datetime" kind="computedfordisplay" name="CreatedAt_1">
+                  <datetimeformat show="datetime" date="yearmonthday" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="weekdaydaymonthyear" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1=" " dateseparator2="." dateseparator3="." timeseparator=":" timeformat24="true" preference="custom"/>
+                  <code event="defaultvalue">
+                    <formula>CreatedAt</formula>
+                  </code>
+                </field>
+              </run>
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="1px 1px 1px 0px">
+            <par def="4">
+              <run>
+                <font size="12pt" color="teal"/>Created by:</run>
+            </par>
+          </tablecell>
+          <tablecell borderwidth="1px 0px 1px 1px">
+            <par def="5">
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+              <run>
+                <font size="12pt" color="navy"/>
+                <computedtext>
+                  <code event="value">
+                    <formula>CreatedByName + " (" + CreatedByLogin + ")"</formula>
+                  </code>
+                </computedtext>
+              </run>
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="1px 0px" bgcolor="white">
+            <par def="4">
+              <run>
+                <font size="12pt" color="teal"/>
+              </run>
+            </par>
+          </tablecell>
+          <tablecell borderwidth="1px 0px" bgcolor="white">
+            <pardef id="6" keepwithnext="true" keeptogether="true"/>
+            <par def="6">
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="1px 1px 1px 0px">
+            <par def="4">
+              <run>
+                <font size="12pt" color="teal"/>File Name:</run>
+            </par>
+          </tablecell>
+          <tablecell borderwidth="1px 0px 1px 1px">
+            <par def="5">
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+              <run>
+                <font size="12pt" color="navy"/>
+                <computedtext>
+                  <code event="value">
+                    <formula>@Implode(ParentFolderPath; "\\") + "\\"</formula>
+                  </code>
+                </computedtext>
+              </run>
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+              <run>
+                <font size="12pt" style="bold" color="blue"/>
+                <computedtext>
+                  <code event="value">
+                    <formula>FileName</formula>
+                  </code>
+                </computedtext>
+              </run>
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="1px 0px" bgcolor="white">
+            <pardef id="2" keepwithnext="true" keeptogether="true"/>
+            <par def="2">
+              <run>
+                <font size="12pt" style="bold"/>
+              </run>
+            </par>
+          </tablecell>
+          <tablecell borderwidth="1px 0px" bgcolor="white">
+            <par def="6">
+              <run>
+                <font size="12pt" style="bold" color="navy"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell columnspan="2" borderwidth="1px 0px">
+            <pardef id="7" leftmargin="1.6569in" tabs="L4.1333in" keepwithnext="true" keeptogether="true">
+              <code event="hidewhen">
+                <formula>Comments=""</formula>
+              </code>
+            </pardef>
+            <par def="7">
+              <run>
+                <font size="12pt"/>
+              </run>
+              <run>
+                <font size="12pt" color="navy"/>
+                <field type="text" allowmultivalues="true" kind="computedfordisplay" name="CommentsDisp" listinputseparators="comma semicolon blankline" listdisplayseparator="blankline">
+                  <code event="defaultvalue">
+                    <formula>names:=@Left(@Right(Comments; "___");"___");
+texts:=@RightBack(Comments; "___");
+
+names + " : " + @Char(9) + @ReplaceSubstring(texts; @Char(10); @NewLine)</formula>
+                  </code>
+                </field>
+              </run>
+              <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+              <run>
+                <font size="12pt"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+      </table>
+      <par def="1"/>
+      <par def="1"/>
+      <pardef id="8" leftmargin="0.7500in"/>
+      <section onread="collapse" onpreview="collapse" onedit="collapse" onprint="collapse" expanded="true">
+        <sectiontitle pardef="8" color="teal">
+          <text>Details</text>
+        </sectiontitle>
+        <par def="1">Status: [Values: ACTIVE, DELETED]</par>
+        <par def="1">
+          <field type="text" kind="editable" name="Status"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+        </par>
+        <par def="1"/>
+        <par def="1">CreatedAt:</par>
+        <par def="1">
+          <field type="datetime" kind="editable" name="CreatedAt">
+            <datetimeformat show="datetime" date="yearmonthday" fourdigityearfor21stcentury="true" time="hourminute" zone="never" dateformat="weekdaydaymonthyear" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1=" " dateseparator2="." dateseparator3="." timeseparator=":" timeformat24="true" preference="usersetting"/>
+          </field>
+        </par>
+        <par def="1"/>
+        <par def="1">CreatedByName  /  CreatedByLogin  /  CreatedById</par>
+        <par def="1">
+          <field type="text" kind="editable" name="CreatedByName"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>  /  <field type="text" kind="editable" name="CreatedByLogin"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="12" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>  /  <field type="text" kind="editable" name="CreatedById"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+        </par>
+        <par def="1"/>
+        <par def="1">FileId  /  FileName:</par>
+        <par def="1">
+          <field type="text" kind="editable" name="FileId"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>  /  <field type="text" kind="editable" name="FileName"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="12" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+        </par>
+        <par def="1"/>
+        <par def="1">ParentFolderId  /  ParentFolderName  /  ParentFolderPath:<run>
+            <font style="italic"/> [Valid for FILE.UPLOADED]</run>
+        </par>
+        <par def="1">
+          <field type="text" kind="editable" name="ParentFolderId"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>  /  <field type="text" kind="editable" name="ParentFolderName"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="12" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>  /  <field type="text" allowmultivalues="true" kind="editable" name="ParentFolderPath" listinputseparators="comma semicolon" listdisplayseparator="semicolon"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+        </par>
+        <par def="1"/>
+        <par def="1">Comments:</par>
+        <par def="1">
+          <field type="text" kind="editable" name="Comments"/>
+          <compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>
+        </par>
+      </section>
+      <par def="1"/>
+      <par def="1"/>
+      <par def="1"/>
+      <par def="1"/>
+    </richtext>
+  </body>
+</form>

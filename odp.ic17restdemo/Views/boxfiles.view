@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.lotus.com/dxl" name="boxfiles" showinmenu="false" noreplace="true" publicaccess="false" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="beveled" opencollapsed="false" showresponsehierarchy="true" showmargin="true" shrinkrows="false" extendlastcolumn="false" showhierarchies="false" unreadcolor="black" rowlinecount="1" headerlinecount="1" rowspacing="1" bgcolor="white" altrowcolor="#f7f7f7" totalscolor="black" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="false" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false">
+  <code event="selection">
+    <formula>SELECT form = "boxfile"</formula>
+  </code>
+  <actionbar bgcolor="#ece9d8" bordercolor="black">
+    <actionbuttonstyle bgcolor="#ece9d8"/>
+    <font color="system"/>
+    <border style="solid" width="0px 0px 1px"/>
+    <action title="Categori_ze" showinbar="false" systemcommand="categorize"/>
+    <action title="_Edit Document" showinbar="false" systemcommand="edit"/>
+    <action title="_Send Document" showinbar="false" systemcommand="send"/>
+    <action title="_Forward" showinbar="false" systemcommand="forward"/>
+    <action title="_Move To Folder..." showinbar="false" systemcommand="movetofolder"/>
+    <action title="_Remove From Folder" showinbar="false" systemcommand="removefromfolder"/>
+    <action title="_Read" showinbar="false" systemcommand="markread"/>
+    <action title="_Unread" showinbar="false" systemcommand="markunread"/>
+    <action title="_Open in New Window" showinbar="false" systemcommand="openinnewwindow"/>
+    <action title="_Print..." showinbar="false" systemcommand="print"/>
+    <action title="_Delete" showinbar="false" systemcommand="delete"/>
+    <action title="_Document Properties" showinbar="false" systemcommand="properties"/>
+    <action title="C_ut" showinbar="false" systemcommand="cut"/>
+    <action title="_Copy" showinbar="false" systemcommand="copy"/>
+    <action title="Copy as Document _Link" showinbar="false" systemcommand="copyasdoclink"/>
+    <action title="Copy as _Table" showinbar="false" systemcommand="copyastable"/>
+    <action title="P_aste" showinbar="false" systemcommand="paste"/>
+    <action title="_Open" showinbar="false" systemcommand="open"/>
+    <action title="Bookmark" showinbar="false" systemcommand="bookmark"/>
+  </actionbar>
+  <column sort="ascending" hidedetailrows="false" itemname="Status" width="7.6250" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <font size="12pt" color="maroon" style="bold"/>
+    <columnheader title="Status">
+      <font size="9pt" style="bold"/>
+    </columnheader>
+  </column>
+  <column sort="descending" hidedetailrows="false" itemname="CreatedAt" width="14.7500" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <font size="12pt" color="gray"/>
+    <columnheader title="Created At">
+      <font size="9pt" style="bold"/>
+    </columnheader>
+    <datetimeformat show="datetime" date="yearmonthday" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="weekdaydaymonthyear" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1=" " dateseparator2="." dateseparator3="." timeseparator=":" timeformat24="true" preference="usersetting"/>
+  </column>
+  <column hidedetailrows="false" itemname="PathExtracted" width="15.6250" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <font size="12pt" color="gray"/>
+    <columnheader title="Path">
+      <font size="9pt" style="bold"/>
+    </columnheader>
+    <code event="value">
+      <formula>@Implode(ParentFolderPath; "\\")</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="FileName" width="22" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <font size="12pt" color="maroon" style="bold"/>
+    <columnheader title="Name">
+      <font size="9pt" style="bold"/>
+    </columnheader>
+  </column>
+  <column align="center" hidedetailrows="false" itemname="$26" width="10" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <font size="12pt" color="maroon" style="bold"/>
+    <columnheader align="center" title="Comment Count">
+      <font size="9pt" style="bold"/>
+    </columnheader>
+    <code event="value">
+      <formula>@Elements(Comments)</formula>
+    </code>
+  </column>
+</view>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	xmlns:xc="http://www.ibm.com/xsp/custom"
+	xmlns:xe="http://www.ibm.com/xsp/coreex">
+	<xp:this.resources>
+		<xp:script
+			src="/watson.js"
+			clientSide="true">
+		</xp:script>
+	</xp:this.resources>
+	<xp:div
+		id="container">
+		<xp:div
+			id="actionBar"
+			styleClass="btn-toolbar"
+			role="toolbar">
+			<xp:div
+				id="navbuttons"
+				styleClass="btn-group pull-right"
+				role="group">
+				<xp:button
+					value="Previous"
+					styleClass="btn btn-default btn-xs"
+					disabled="#{stackoverflow.currentPageDisplay == 1}"
+					id="button1">
+					<xp:span
+						styleClass="glyphicon glyphicon-backward" />
+					<xp:eventHandler
+						event="onclick"
+						submit="true"
+						refreshMode="partial"
+						refreshId="container">
+						<xp:this.action>
+							<xp:executeScript
+								script="#{stackoverflow.prevPage}"></xp:executeScript>
+						</xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
+				<xp:text
+					value="Page #{stackoverflow.currentPageDisplay}"
+					styleClass="btn btn-default btn-xs"
+					id="button3">
+				</xp:text>
+				<xp:button
+					value="Next"
+					styleClass="btn btn-default btn-xs"
+					id="button2">
+					<xp:span
+						styleClass="glyphicon glyphicon-forward" />
+					<xp:eventHandler
+						event="onclick"
+						submit="true"
+						refreshMode="partial"
+						refreshId="container">
+						<xp:this.action>
+							<xp:executeScript
+								script="#{stackoverflow.nextPage}"></xp:executeScript>
+						</xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
+			</xp:div>
+		</xp:div>
+		<xp:div
+			id="questionList"
+			style="margin:10px 5px">
+			<xp:repeat
+				id="repeat1"
+				rows="30"
+				value="#{stackoverflow.pageList}"
+				var="question"
+				indexVar="idx">
+				<xc:soQuestionContent
+					question="#{question}"
+					dialogMode="false">
+				</xc:soQuestionContent>
+			</xp:repeat>
+		</xp:div>
+	</xp:div>
+	<xe:dialog
+		id="questionDlg"
+		styleClass="questionDlg"
+		title="Stack Overflow Question Details"
+		onShow="$('.modal-dialog').addClass('modal-lg')">
+		<xe:dialogContent
+			id="dialogContent1">
+			<xc:soQuestionContent
+				question="#{viewScope.activeQuestion}"
+				dialogMode="true">
+			</xc:soQuestionContent>
+		</xe:dialogContent>
+	</xe:dialog>
+	<xe:jsonRpcService
+		id="watson"
+		serviceName="watson"
+		state="false">
+		<xe:this.methods>
+			<xe:remoteMethod
+				name="askWatson"
+				script="return watson.ask(questionId)">
+				<xe:this.arguments>
+					<xe:remoteMethodArg
+						type="number"
+						name="questionId">
+					</xe:remoteMethodArg>
+				</xe:this.arguments>
+			</xe:remoteMethod>
+		</xe:this.methods>
+	</xe:jsonRpcService>
+</xp:view>
