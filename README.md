@@ -60,7 +60,7 @@ At this point, you will need to use Bluemix to create a new Natural Language Cla
 
 The second script, [WatsonPush.py](_doc/WatsonPush.py) will use IBM Watson SDK to send the `output.csv` file to the new classifier we just created. But first, open the script in a text editor and fill in the credentials. When you run the script, it will print out the response coming back from the Watson NLC. We will need the classifier id in this response. 
 
-The training takes a long time (sometimes, more than a day!). To check the status, you might use the script (, or open the service page from the  [dashboard](https://console.ng.bluemix.net/dashboard/watson) and access to the beta toolkit.
+The training takes a long time (sometimes, more than a day!). To check the status, you might use the script, or open the service page from the  [dashboard](https://console.ng.bluemix.net/dashboard/watson) and access to the beta toolkit.
 
 #### Running XPages Demo
 
@@ -165,12 +165,13 @@ The demo application provides two different modules for Box: A RESTful service f
 - Use "[Create Box Application](https://developi.app.box.com/developers/services/edit/)" link on the right.
 - Name your application
 - Make sure you have the right information on the following fields:
-  - Redirect URI should match with a secure URL accessible for your test environment. We'll use it for the OAuth2 dance. 
+  - Redirect URI should match with a secure URL accessible for your test environment. We'll use it for the OAuth2 dance.
+    - `https://your.server.url/path/to/ic17restdemo.nsf/services.xsp/boxCallBack` 
   - We need to use "Content API Access Only" option for the demo.
   - Authentication type: "Standard Authentication (3-legged OAuth2.0)"
   - Scopes should contain "Manage webhooks v2" option
 - Create a new developer token here. This will be valid for an hour only. After that you can create a new one. "developer token" will be needed for the Webhooks demo.
-- Open the demo database config (from `config` view) and record "redirect_url", "client_id" and "client_secret".  Also provide a valid mail address for the "Notify User on Webhook" to get new file notifications in the webhook demo.
+- Open the demo database config (from `config` view) and save "redirect_url", "client_id" and "client_secret".  Also provide a valid mail address for the "Notify User on Webhook" to get new file notifications in the webhook demo.
 
 #### Webhooks Demo
 
@@ -180,7 +181,7 @@ Basically, we will create a webhook that will monitor a specific folder on our B
 
 - Create a folder on your Box drive and write down its folder id
   - When you navigate to the folder on your browser, URL ends with the folder id.
-- You can use [Postman](https://www.getpostman.com/) to define a new webhooks. Just import [IC17_REST.postman_collection.json](_doc/IC17_REST.postman_collection.json) into your Postman client
+- You can use [Postman](https://www.getpostman.com/) to register webhooks. Just import [IC17_REST.postman_collection.json](_doc/IC17_REST.postman_collection.json) into your Postman client
   - Open "Create Webhook on Box" request
   - Enter the developer token you have created before into Authorization variable in the Headers section. Do not delete the "Bearer" prefix.
   - In JSON body, make sure you have the right folder id and the correct url for your service. 
@@ -209,7 +210,7 @@ Basically, we will create a webhook that will monitor a specific folder on our B
   - Access Token (valid for an hour) is what we need to access Box API for further requests
   - Refresh Token (valid for 60 days) is used to get a new access token when the old one expires.
   - Saved tokens are not encrypted and they provide access to everything on the Box. Protect these tokens.
-- After refreshing the Box demo page, we can navigate in the Box folders. When we navigate user's Box files, we will add the access token to every requests we sent to Box API. If access token is expired, it will be renewed automatically by the refresh token.
+- After refreshing the Box demo page, we can navigate in the Box folders. When we navigate user's Box files, our RESTful consumer method will add the access token to every requests we sent to Box API. If access token is expired, it will be renewed automatically by the refresh token.
 
 #### Under the hood
 
@@ -347,21 +348,16 @@ The incoming code is processed by the following method which completes the inter
 
 This demo repository contains the following libraries shared under Apache License 2.0
 
-- [Apache Commons Lang](https://commons.apache.org/)
-  Copyright 2001-2016 The Apache Software Foundation
+- [Apache Commons Lang](https://commons.apache.org/) - Copyright 2001-2016 The Apache Software Foundation
 
-- [Apache Commons Codec](https://commons.apache.org/)
-  Copyright 2002-2016 The Apache Software Foundation
+- [Apache Commons Codec](https://commons.apache.org/) - Copyright 2002-2016 The Apache Software Foundation
 
-- [Apache Commons Logging](https://commons.apache.org/)
-  Copyright 2003-2016 The Apache Software Foundation
+- [Apache Commons Logging](https://commons.apache.org/) - Copyright 2003-2016 The Apache Software Foundation
 
-- [Apache HttpComponents Client](https://hc.apache.org/httpcomponents-client-ga/)
-  Copyright 1999-2016 The Apache Software Foundation
+- [Apache HttpComponents Client](https://hc.apache.org/httpcomponents-client-ga/) - Copyright 1999-2016 The Apache Software Foundation
 
-- [IBM Commons Library](https://github.com/OpenNTF/SocialSDK/tree/master/commons/com.ibm.commons) (from [IBM Social Business Toolkit SDK](https://github.com/OpenNTF/SocialSDK) Project)
+- [IBM Commons Library](https://github.com/OpenNTF/SocialSDK/tree/master/commons/com.ibm.commons) (from [IBM Social Business Toolkit SDK](https://github.com/OpenNTF/SocialSDK) Project)  - Copyright IBM Corp. 2010, 2013
 
-  Copyright IBM Corp. 2010, 2013
 
 
 
