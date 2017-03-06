@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "IC17_REST",
+		"_postman_id": "83ebb1e1-9fb7-297b-a346-b3e6ca6427da",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Webhook on Box",
+			"request": {
+				"url": "https://api.box.com/2.0/webhooks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_developer_token>",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"target\": {\n\t\t\"id\": \"<your_folder_id>\", \n\t\t\"type\": \"folder\"\n\t}, \n\t\"address\": \"https://your.server.url/path/to/ic17rest.nsf/services.xsp/notifyNewFile\", \n\t\"triggers\": [\n\t\t\"FILE.UPLOADED\",\n\t\t\"FILE.TRASHED\",\n\t\t\"COMMENT.CREATED\"\n\t]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Webhooks",
+			"request": {
+				"url": "https://api.box.com/2.0/webhooks",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_developer_token>",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get the list of webhooks defined"
+			},
+			"response": []
+		}
+	]
+}

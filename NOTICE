@@ -1,0 +1,32 @@
+IC17RestDemo Application
+https://github.com/sbasegmez/IC17RestDemo
+
+© Copyright 2011, 2013 Serdar Basegmez
+
+Apache Commons Lang
+Copyright 2001-2016 The Apache Software Foundation
+(Apache License)
+
+Apache Commons Codec
+Copyright 2002-2016 The Apache Software Foundation
+(Apache License)
+
+Apache Commons Logging
+Copyright 2003-2016 The Apache Software Foundation
+(Apache License)
+
+Apache HttpComponents Client
+Copyright 1999-2016 The Apache Software Foundation
+(Apache License)
+
+IBM Commons Library (from IBM Social Business Toolkit SDK Project)
+Copyright IBM Corp. 2010, 2013
+(Apache License)
+
+
+The following resources are used remotely (no code included in project). Note that your use of these resources is governed by the Terms of Service (or Terms of Use) of the respective resource.  It is your responsibility to ensure compliance with such terms. 
+
+Stackoverflow REST API - https://stackoverflow.com/
+Box REST API - https://www.box.com/
+IBM Watson Rest API - https://www.ibm.com/watson/
+Fixer.io REST API http://fixer.io/
